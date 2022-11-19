@@ -5,6 +5,9 @@
  */
 package datastructuresandalgorithmsproject1;
 
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Scanner;
 
 /**
@@ -46,46 +49,22 @@ public String peek() {
     
 }
 
-    public static boolean isPalindromeEvenElements(StackArray s) {
-    StackArray temp = new StackArray((s.top + 1) / 2);
-    StackArray temp2 = new StackArray((s.top + 1) / 2);
-    for(int i = s.top; i >= (s.top + 1) / 2; i--) {
-        temp.push(s.data[i]);
-    }
-    for(int i = 0; i < (s.top + 1) / 2; i++) {
-        temp2.push(s.data[i]);
-    }
-    boolean isPalindrome = true;
-    while(!temp.isEmpty() && !temp2.isEmpty()) {
-        String s1 = temp.pop();
-        String s2 = temp.pop();
-        if(!(s1.equals(s2))) {
-            isPalindrome = false;
-            break;
+    public  boolean isPalindrome() {
+        boolean isPalindrome = true;
+        StackArray temp = new StackArray(this.top + 1);
+        int j = this.top;
+        for(int i = 0; i <= this.top; i++) {
+            temp.data[j] = this.data[i];
+            j--;
         }
-    }
-    return isPalindrome;
-}
-    public static boolean isPalindromeOddElements(StackArray s) {
-    StackArray temp = new StackArray((s.top + 1) / 2);
-    StackArray temp2 = new StackArray((s.top + 1) / 2);
-    for(int i = s.top; i > (s.top + 1) / 2; i--) {
-        temp.push(s.data[i]);
-    }
-    for(int i = 0; i < (s.top + 1) / 2; i++) {
-        temp2.push(s.data[i]);
-    }
-    boolean isPalindrome = true;
-    while(!temp.isEmpty() && !temp2.isEmpty()) {
-        String s1 = temp.pop();
-        String s2 = temp.pop();
-        if(!(s1.equals(s2))) {
-            isPalindrome = false;
-            break;
+        for(int i = 0; i <= this.top; i++) {
+            if(!(this.data[i].equals(temp.data[i]))) {
+                isPalindrome = false;
+            }
         }
-    }
-    return isPalindrome;
-}
+        return isPalindrome;
+	}
+    
 public static void deleteMiddle(StackArray s) {
     if((s.top + 1) % 2 == 0) {
         System.out.println("There is no middle element as the size of stack is even.");
@@ -121,7 +100,8 @@ public void print() {
             System.out.println("3- Print");
             System.out.println("4- Delete middle");
             System.out.println("5- isPalindrome");
-            
+            System.out.println("6- Exit");
+           
             System.out.println("Enter your operation");
             int operation = scanner.nextInt();
             switch(operation) {
@@ -145,11 +125,7 @@ public void print() {
                     StackArray.deleteMiddle(sa);
                     break;
                     case 5:
-                        if((sa.top + 1) % 2 == 0) {
-                            System.out.println(StackArray.isPalindromeEvenElements(sa));
-                        }else {
-                            System.out.println(StackArray.isPalindromeOddElements(sa));
-                        }
+                        System.out.println(sa.isPalindrome());
                     break;
                 case 6:
                     condition = false;
