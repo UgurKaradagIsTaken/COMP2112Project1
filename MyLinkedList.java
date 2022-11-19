@@ -149,6 +149,7 @@ this.next = null;
          i.toStringforNode();
          i = i.next;
      }
+     System.out.println("");
      System.out.println("Second polynomial");
      while(j != null) {
          j.toStringforNode();
@@ -156,7 +157,7 @@ this.next = null;
      }
      System.out.println("");
  }
- /*
+ 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         MyLinkedList l1 = new MyLinkedList();
@@ -182,6 +183,7 @@ this.next = null;
         } while (coef != 0);
         boolean condition = true;
         while(condition) {
+            System.out.println("");
             System.out.println("1- Add");
             System.out.println("2- Multiply");
             System.out.println("3- Print");
@@ -214,7 +216,7 @@ this.next = null;
             } 
         }
     }
-    */
+    
 }
 
 
